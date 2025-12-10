@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Contoh Dasar JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #2196F3;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 5px;
+        }
+        .penjelasan {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #jam {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+            padding: 10px;
+        }
+        #hasil {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff3cd;
+            border-radius: 4px;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>5 Contoh Penggunaan Dasar JavaScript</h1>
+
+    <!-- Contoh 1: Alert Box -->
+    <div class="container">
+        <h2>1. Alert Box (Popup Pesan)</h2>
+        <button onclick="tampilkanAlert()">Klik untuk Alert</button>
+        
+        <div class="penjelasan">
+            <strong>Penjelasan:</strong><br>
+            Alert box digunakan untuk menampilkan pesan popup kepada user. Menggunakan fungsi <code>alert()</code> dan event <code>onclick</code> yang akan dijalankan ketika tombol diklik.
+        </div>
+    </div>
+
+    <!-- Contoh 2: Mengubah Konten HTML -->
+    <div class="container">
+        <h2>2. Mengubah Konten HTML</h2>
+        <p id="teks">Ini adalah teks awal</p>
+        <button onclick="ubahTeks()">Ubah Teks</button>
+        
+        <div class="penjelasan">
+            <strong>Penjelasan:</strong><br>
+            JavaScript dapat mengubah konten elemen HTML menggunakan <code>document.getElementById()</code> untuk mengakses elemen dan properti <code>innerHTML</code> untuk mengubah isinya.
+        </div>
+    </div>
+
+    <!-- Contoh 3: Kalkulator Sederhana -->
+    <div class="container">
+        <h2>3. Kalkulator Sederhana</h2>
+        <input type="number" id="angka1" placeholder="Angka 1">
+        <input type="number" id="angka2" placeholder="Angka 2">
+        <button onclick="hitung()">Hitung</button>
+        <div id="hasil"></div>
+        
+        <div class="penjelasan">
+            <strong>Penjelasan:</strong><br>
+            Contoh ini menunjukkan bagaimana JavaScript dapat mengambil nilai dari input form menggunakan <code>value</code>, melakukan perhitungan, dan menampilkan hasilnya. Menggunakan <code>parseInt()</code> untuk mengkonversi string menjadi angka.
+        </div>
+    </div>
+
+    <!-- Contoh 4: Jam Digital -->
+    <div class="container">
+        <h2>4. Jam Digital Real-time</h2>
+        <div id="jam"></div>
+        
+        <div class="penjelasan">
+            <strong>Penjelasan:</strong><br>
+            JavaScript dapat menampilkan waktu real-time menggunakan objek <code>Date()</code> dan fungsi <code>setInterval()</code> yang mengupdate tampilan setiap detik (1000 milidetik).
+        </div>
+    </div>
+
+    <!-- Contoh 5: Ubah Background dengan Mouse -->
+    <div class="container">
+        <h2>5. Ubah Warna Background dengan Mouse</h2>
+        <button onmouseover="ubahWarna('lightblue')" onmouseout="ubahWarna('white')">Arahkan Mouse ke Sini (Biru)</button>
+        <button onmouseover="ubahWarna('lightgreen')" onmouseout="ubahWarna('white')">Arahkan Mouse ke Sini (Hijau)</button>
+        <button onmouseover="ubahWarna('lightcoral')" onmouseout="ubahWarna('white')">Arahkan Mouse ke Sini (Merah)</button>
+        
+        <div class="penjelasan">
+            <strong>Penjelasan:</strong><br>
+            Menggunakan event <code>onmouseover</code> (saat mouse masuk ke area tombol) dan <code>onmouseout</code> (saat mouse keluar dari area tombol) untuk mengubah warna background halaman secara dinamis.
+        </div>
+    </div>
+
+    <script>
+        // Contoh 1: Alert Box
+        function tampilkanAlert() {
+            alert("Halo! Ini adalah contoh Alert Box dari JavaScript");
+        }
+
+        // Contoh 2: Mengubah Konten HTML
+        function ubahTeks() {
+            document.getElementById("teks").innerHTML = "Teks telah diubah oleh JavaScript!";
+        }
+
+        // Contoh 3: Kalkulator Sederhana
+        function hitung() {
+            var angka1 = parseInt(document.getElementById("angka1").value);
+            var angka2 = parseInt(document.getElementById("angka2").value);
+            
+            if (isNaN(angka1) || isNaN(angka2)) {
+                document.getElementById("hasil").innerHTML = "Silakan masukkan angka yang valid!";
+            } else {
+                var tambah = angka1 + angka2;
+                var kurang = angka1 - angka2;
+                var kali = angka1 * angka2;
+                var bagi = angka1 / angka2;
+                
+                document.getElementById("hasil").innerHTML = 
+                    "Hasil:<br>" +
+                    "Tambah: " + tambah + "<br>" +
+                    "Kurang: " + kurang + "<br>" +
+                    "Kali: " + kali + "<br>" +
+                    "Bagi: " + bagi.toFixed(2);
+            }
+        }
+
+        // Contoh 4: Jam Digital
+        function updateJam() {
+            var sekarang = new Date();
+            var jam = sekarang.getHours();
+            var menit = sekarang.getMinutes();
+            var detik = sekarang.getSeconds();
+            
+            // Tambahkan 0 di depan jika angka kurang dari 10
+            jam = jam < 10 ? "0" + jam : jam;
+            menit = menit < 10 ? "0" + menit : menit;
+            detik = detik < 10 ? "0" + detik : detik;
+            
+            document.getElementById("jam").innerHTML = jam + ":" + menit + ":" + detik;
+        }
+        
+        // Update jam setiap detik
+        setInterval(updateJam, 1000);
+        updateJam(); // Panggil sekali saat halaman dimuat
+
+        // Contoh 5: Ubah Background dengan Mouse
+        function ubahWarna(warna) {
+            document.body.style.backgroundColor = warna;
+        }
+    </script>
+</body>
+</html>
